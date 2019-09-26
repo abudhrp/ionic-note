@@ -1,0 +1,66 @@
+page-mynote {
+  .scroll-content {
+    background-color: #ecf0f1 !important;
+    border-top: 0px !important;
+  }
+  .refresher-active{
+    background-color: #ecf0f1 !important;
+  }
+  .fixed-content{
+    background-color: #ecf0f1 !important;
+  }
+  .green{
+    color : #32db64;
+  }
+  .card-md {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+  .card-content {
+    padding: 0;
+  }
+  .kartu{
+    margin: 0;
+    padding: 0;
+  }
+  .konten{
+    padding: 20px;
+  }
+  .foto{
+    padding: 0 !important;
+    width: 100%;
+  }
+  .foto img{
+    height: 100%;
+  }
+  .abuabu{
+    color: #999;
+  }
+  .fab-md-light{
+    background-color: #32db64;
+    color: #fff;
+  }
+  .icon-bigger{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+    color: #32db64;
+  }
+  .folder-card{
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+  }
+  .div-center{
+    height: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: #999;
+  }
+}

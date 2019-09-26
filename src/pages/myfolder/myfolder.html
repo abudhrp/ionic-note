@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle [hidden]="visible">
+          <ion-icon name="menu" class="green"></ion-icon>
+        </button>
+        <ion-title text-center [hidden]="visible">My Folders ({{currentItems.length}})</ion-title>
+        <ion-buttons end (click)="search()">
+            <button ion-button icon-only>
+        <ion-icon name="search" class="green" [hidden]="visible"></ion-icon>
+        <ion-icon name="close" class="green" [hidden]="!visible"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-searchbar placeholder="Search folder..." [animated]="true" [hidden]="!visible" [(ngModel)]="searchFolder" (ionInput)="onSearch($event)">
+        </ion-searchbar>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="crescent" refreshingText="Please wait...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list class="folder-card" *ngIf="currentItems.length > 0; else nolist">
+        <ion-card #item *ngFor="let p of currentItems">
+            <ion-card-content class="kartu">
+                <ion-row class="konten">
+                    <ion-col (click)="openItem(p.foldername,p.id)">
+                      <ion-icon name="ios-folder-open-outline" class="icon-bigger"></ion-icon>
+                      <h2 ion-text color="secondary">{{p?.foldername}}</h2>&nbsp;&nbsp;&nbsp;
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-row float-right>
+                            <button full ion-button (click)="editdata(p.id)" small><ion-icon name="ios-create-outline"></ion-icon>&nbsp;Edit</button>
+                            <button full ion-button (click)="deletedata(p.id)" color="danger" small><ion-icon name="trash"></ion-icon>&nbsp;Delete</button>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+    <ng-template #nolist>
+        <div text-center class="div-center">
+            <p>It seems that you don't have folder notes.<br> Now try to create one by push the icon <span class="green">+</span> below.
+            </p>
+        </div>
+    </ng-template>
+    <ion-fab center bottom>
+        <button ion-fab mini class="green" (click)="newfolder()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+</ion-content>

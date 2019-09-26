@@ -1,0 +1,41 @@
+<ion-menu type="overlay" [content]="content" id="sidebar" persistent="true">
+  <ion-content class="outer-content">
+
+    <ion-list>
+      <ion-list-header>
+        Navigate
+      </ion-list-header>
+      <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Tutorial
+      </ion-list-header>
+      <button ion-item menuClose (click)="openTutorial()">
+          <ion-icon item-start name="help-circle"></ion-icon>
+          Tutorial
+        </button>
+    </ion-list>
+
+    <!-- <ion-list>
+      <ion-list-header>
+        Account
+      </ion-list-header>
+      <button ion-item menuClose>
+          <ion-icon item-start name="settings"></ion-icon>
+          Edit Profile
+      </button>
+      <button ion-item menuClose (click)="logout()">
+          <ion-icon item-start name="exit"></ion-icon>
+          Logout
+      </button>
+    </ion-list> -->
+
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>

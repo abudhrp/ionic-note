@@ -1,0 +1,36 @@
+page-login {
+    .scroll-content {
+      background-color: #ecf0f1;
+    }
+    #container {
+      margin: 60px 25px 0px 25px;
+    }
+    ion-list{
+      margin-bottom: 25px;
+    }
+    .item{
+      padding: 0;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      background-color: #ecf0f1;
+    }
+    .item-input{
+      border-bottom: none !important;
+    }
+    .item-inner{
+      border-bottom: none !important;
+    }
+    .input{
+    	-moz-border-radius: 50px;
+    	-webkit-border-radius: 50px;
+    	border-radius: 15px;
+    	padding: 4px 7px;
+    	outline: 0;
+    	-webkit-appearance: none;
+      background-color: #fff;
+      border: 1px solid #32db64;
+    }
+    .no-scroll .scroll-content{
+         overflow: hidden;
+    }
+}

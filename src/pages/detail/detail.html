@@ -1,0 +1,48 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{judul}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="options()">
+        <ion-icon name="options" class="green"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card  *ngIf="item;">
+    <ion-slides class="slides" pager="true" *ngIf="images;">
+      <ion-slide *ngFor="let image of images" class="block">
+        <img class="center-image" [src]="image" (click)="showImage(image,item.title)" />
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content>
+      <ion-card-title>
+        {{item?.title}}
+      </ion-card-title>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h4 class="abuabu"><ion-icon name="md-time" class="green"></ion-icon> {{item?.timecreated}}</h4>
+          </ion-col>
+          <ion-col>
+            <h4 class="abuabu"><ion-icon name="ios-folder-open-outline" class="green"></ion-icon> {{ folder }}</h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <br>
+      <br>
+      <p>
+        {{item?.note}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

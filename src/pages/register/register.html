@@ -1,0 +1,54 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="no-scroll">
+  <div id="container">
+    <form #registerForm="ngForm" novalidate>
+    <ion-list>
+
+      <p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
+				Username is required
+			</p>
+      <ion-item>
+        <ion-input class="input-rounded" type="text" [(ngModel)]="signup.username" #username="ngModel" name="username" placeholder="Username" required></ion-input>
+      </ion-item>
+
+      <p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				Email is required
+			</p>
+      <ion-item>
+        <ion-input class="input-rounded" type="email" [(ngModel)]="signup.email" #email="ngModel" name="email" placeholder="Email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" required></ion-input>
+      </ion-item>
+
+      <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+				Password is required
+			</p>
+      <ion-item>
+        <ion-input class="input-rounded" type="password" [(ngModel)]="signup.password" #password="ngModel" name="password" placeholder="Password" required></ion-input>
+      </ion-item>
+
+      <p ion-text [hidden]="confirm.valid || submitted == false" color="danger" padding-left>
+				Confirm password is required
+			</p>
+      <ion-item>
+        <ion-input class="input-rounded" type="password" [(ngModel)]="signup.confirm" #confirm="ngModel" name="confirm" placeholder="Confirm Password" required></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button full color="secondary" type="submit" round (click)="register(registerForm)">Sign Up</button>
+    </form>
+  </div>
+</ion-content>

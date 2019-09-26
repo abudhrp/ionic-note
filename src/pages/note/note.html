@@ -1,0 +1,74 @@
+<!--
+  Generated template for the NotePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <button ion-button icon-only color="light" (click)="backtofolder()">
+
+    </button> -->
+    <ion-title text-center [hidden]="visible">{{ item }}</ion-title>
+    <ion-buttons end (click)="search()">
+      <button ion-button icon-only>
+        <ion-icon name="search" class="green" [hidden]="visible"></ion-icon>
+        <ion-icon name="close" class="green" [hidden]="!visible"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-searchbar
+      placeholder = "Search note by title here..."
+      [animated]="true"
+      [hidden]="!visible"
+      [(ngModel)]="myInput"
+      (ionInput)="onSearch($event)">
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="crescent"
+      refreshingText="Please wait...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-list *ngIf="notes.length > 0; else nolist">
+    <ion-card *ngFor="let n of notes; let i = index" (click)="openItem(n.id,n.title,item,n.id_folder)">
+      <ion-card-content>
+        <ion-row class="kartu">
+          <ion-col col-8 class="konten">
+            <h2><strong>{{n?.title}}</strong></h2>
+            <br>
+            <h4 class="abuabu"><ion-icon name="md-time" class="green"></ion-icon> {{n?.timecreated}}</h4>
+            <h4 class="abuabu"><ion-icon name="ios-folder-open-outline" class="green"></ion-icon> {{ item }}</h4>
+          </ion-col>
+          <ion-col col-4 class="foto">
+            <img [src]="images[i]" *ngIf="images[i];"/>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ng-template #nolist>
+    <div text-center class="div-center">
+      <p>It seems that you don't have notes.<br>
+        Now try to create one by push the icon <span class="green">+</span> below.
+      </p>
+    </div>
+  </ng-template>
+  <ion-fab center bottom>
+    <button ion-fab mini color="light" (click)="addItem()"><ion-icon name="add"></ion-icon></button>
+    <!-- <ion-fab-list side="left" (click)="takePhoto()">
+      <button ion-fab><ion-icon name="camera"></ion-icon></button>
+    </ion-fab-list>
+    <ion-fab-list side="right" (click)="addItem()">
+      <button ion-fab><ion-icon name="ios-create-outline"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
+</ion-content>

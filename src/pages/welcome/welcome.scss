@@ -1,0 +1,13 @@
+page-welcome {
+  #container{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  #konten{
+    margin: 0px 25px 60px 25px;
+  }
+  .no-scroll .scroll-content{
+       overflow: hidden;
+  }
+}
